@@ -4,7 +4,7 @@ int main(){
     scanf("%d %d %d", &a, &b, &c);
 
     if( a<(b+c) && b<(a+c) && c<(b+a) ){
-        if ( a==b && b==c && a==c ){
+        if ( a==b && b==c ){
             printf("Lengths: [%d, %d, %d]\n", a, b, c);
             printf("Type: Equilateral\n");
             printf("All sides are of the same length.");
