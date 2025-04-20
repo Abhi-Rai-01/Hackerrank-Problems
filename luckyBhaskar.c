@@ -31,8 +31,6 @@ int main(){
 
     if (i>days)
         printf("After %d days: %.2lf\n", days, x);
-    else if((i== days+1) && x < initialAmount*0.4)
-        printf("After %d days: %.2lf\n", days, x);
     else
         printf("Stopped early after %d days: %.2lf\n", i-1, x);
     
