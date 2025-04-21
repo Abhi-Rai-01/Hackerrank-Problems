@@ -8,31 +8,18 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        scanf("%d ", &arr[i]);
+        scanf("%d", &arr[i]);
     }
 
-    int freq[n];
-
+    int freq[2000001] = {0};
     for (int i = 0; i < n; i++)
     {
-        if (freq[i] != -1)
-        {
-            int count = 1;
-            for (int j = i + 1; j < n; j++)
-            {
-                if (arr[i] == arr[j])
-                {
-                    ++count;
-                    freq[j] = -1;
-                }
-            }
-            freq[i] = count;
-        }
+        freq[arr[i] + 1000000]++;
     }
 
     for (int i = 0; i < n; i++)
     {
-        if (freq[i] > 1)
+        if (freq[arr[i] + 1000000] > 1)
         {
             printf("%d", arr[i]);
             return 0;
