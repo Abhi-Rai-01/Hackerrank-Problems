@@ -7,43 +7,45 @@ int main()
     int L, R;
     scanf("%d %d", &L, &R);
 
-    if (L<=R)
+    int count = 0;
+
+    while (L <= R)
     {
-        int count = 0;
-        while (L <= R)
-        {
-            L = primeCount(L, R);
-            printf("%d ", L);
-            ++count;
+        L = primeCount(L, R);
+        if(L > R){
+            break;
         }
-        printf("\n");
-    
-        printf("%d", count);
+        ++count;
+        printf("%d ", L);
+        ++L;
     }
+    if(count != 0){
+        printf("\n");   
+    }
+
+    printf("%d", count);
 
     return 0;
 }
 
 int primeCount(int L, int R)
 {
-    if (L <= R)
+    int isPrime = 1;
+    for (int i = 2; i * i <= L; ++i)
     {
-        int isPrime = 1;
-        for (int i = 2; i * i <= L; ++i)
+        if (L % i == 0)
         {
-            if (L % i == 0)
-            {
-                isPrime = 0;
-                break;
-            }
+            isPrime = 0;
+            break;
         }
-        if (isPrime)
-        {
-            return L;
-        }
-        else
-        {
-            return primeCount(++L, R);
-        }
+    }
+    
+    if (isPrime && L != 1)
+    {
+        return L;
+    }
+    else
+    {
+        return primeCount(++L, R);
     }
 }
